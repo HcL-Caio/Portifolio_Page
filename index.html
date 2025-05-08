@@ -1,312 +1,210 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caio - Designer & Desenvolvedor</title>
-    <link rel="icon" href="https://img.icons8.com/color/48/000000/spider-man-new.png" type="image/x-icon">
-    <style>
-        :root {
-            --vermelho-energico: #E50047;
-            --amarelo-brilhante: #FFFC79;
-            --roxo-vibrante: #9249E0;
-            --azul-profundo: #088AD1;
-            --preto: #1a1a1a;
-            --branco: #ffffff;
-            --cinza-claro: #f5f5f5;
-            --sombra-destaque: rgba(146, 73, 224, 0.3);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caio - Designer & Desenvolvedor</title>
+  <link rel="icon" href="https://img.icons8.com/color/48/000000/spider-man-new.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --roxo: #7f5af0;
+      --rosa: #ff8eaf;
+      --amarelo: #f7d070;
+      --azul: #72d3fe;
+      --cinza: #f2f2f2;
+      --preto: #1a1a1a;
+      --branco: #ffffff;
+      --bg-claro: #ffffff;
+      --bg-escuro: #1f1f1f;
+      --texto-claro: #1a1a1a;
+      --texto-escuro: #f2f2f2;
+    }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0;
-            color: var(--preto);
-            background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat fixed;
-            position: relative;
-        }
+    body {
+      margin: 0;
+      font-family: 'Source Sans Pro', sans-serif;
+      background-color: var(--bg-claro);
+      color: var(--texto-claro);
+      transition: background-color 0.3s, color 0.3s;
+    }
 
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(255, 255, 255, 0.85);
-            z-index: -1;
-        }
+    .dark-mode {
+      background-color: var(--bg-escuro);
+      color: var(--texto-escuro);
+    }
 
-        .profile {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(45deg, var(--roxo-vibrante), var(--azul-profundo));
-            color: var(--branco);
-            border-radius: 0 0 20px 20px;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
-            border: 3px solid var(--vermelho-energico);
-            box-shadow: 0 0 20px var(--sombra-destaque);
-        }
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: linear-gradient(90deg, var(--roxo), var(--azul));
+      color: white;
+      position: relative;
+      font-family: 'Merriweather', serif;
+    }
 
-        .profile::before {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: 0;
-            right: 0;
-            height: 20px;
-            background: var(--amarelo-brilhante);
-            transform: rotate(-2deg);
-            z-index: 1;
-        }
+    header img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 4px solid var(--branco);
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      object-fit: cover;
+    }
 
-        .profile img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--branco);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 20px var(--amarelo-brilhante);
-            z-index: 2;
-            position: relative;
-            background: var(--branco);
-            transition: transform 0.3s;
-        }
+    header h1 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.5rem;
+    }
 
-        .profile img:hover {
-            transform: scale(1.05) rotate(5deg);
-        }
+    header p {
+      margin: 0.2rem;
+      font-weight: bold;
+    }
 
-        h1, h2 {
-            color: var(--roxo-vibrante);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
+    .toggle-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--branco);
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 20px;
+      font-weight: bold;
+    }
 
-        h1 {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            letter-spacing: 1px;
-        }
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 1rem;
+    }
 
-        h2 {
-            border-bottom: 2px dashed var(--vermelho-energico);
-            padding-bottom: 5px;
-            display: inline-block;
-            font-family: 'Arial Black', Gadget, sans-serif;
-        }
+    section {
+      background: var(--cinza);
+      margin: 1rem 0;
+      padding: 1rem;
+      border-left: 5px solid var(--roxo);
+      border-radius: 10px;
+      transition: background-color 0.3s;
+    }
 
-        .section {
-            background: var(--branco);
-            padding: 25px;
-            margin: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid var(--amarelo-brilhante);
-            transition: transform 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            background-color: rgba(255, 255, 255, 0.9);
-        }
+    .dark-mode section {
+      background: #2a2a2a;
+    }
 
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px var(--sombra-destaque);
-        }
+    h2 {
+      color: var(--roxo);
+      margin-top: 0;
+      font-family: 'Merriweather', serif;
+    }
 
-        .section::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 100px;
-            height: 100px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="0" y="80" font-family="Arial" font-size="80" fill="rgba(0,0,0,0.05)">!</text></svg>');
-            opacity: 0.3;
-            z-index: 0;
-        }
+    ul {
+      padding-left: 1.2rem;
+    }
 
-        .emoji {
-            font-size: 1.2em;
-        }
+    ul li::marker {
+      color: var(--rosa);
+    }
 
-        a {
-            color: var(--azul-profundo);
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
+    .gif-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
 
-        a:hover {
-            text-decoration: underline;
-            color: var(--roxo-vibrante);
-            text-shadow: 0 0 5px rgba(146, 73, 224, 0.3);
-        }
+    .gif-container img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid var(--roxo);
+    }
 
-        ul {
-            padding-left: 20px;
-            position: relative;
-            z-index: 1;
-        }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: var(--preto);
+      color: var(--branco);
+      font-size: 0.9rem;
+      font-family: 'Merriweather', serif;
+    }
 
-        li {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 15px;
-        }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.2rem;
+      }
 
-        li::before {
-            content: "•";
-            color: var(--vermelho-energico);
-            font-size: 1.5em;
-            position: absolute;
-            left: -5px;
-            top: -5px;
-        }
+      .gif-container img {
+        width: 80px;
+        height: 80px;
+      }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: var(--branco);
-            background: var(--preto);
-            border-radius: 20px 20px 0 0;
-            margin-top: 30px;
-            position: relative;
-            background-color: rgba(26, 26, 26, 0.9);
-        }
-
-        footer::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(to right, var(--vermelho-energico), var(--amarelo-brilhante), var(--roxo-vibrante), var(--azul-profundo));
-        }
-
-        .gif-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin: 20px 0;
-        }
-
-        .gif {
-            width: 120px;
-            height: 120px;
-            border-radius: 10px;
-            object-fit: cover;
-            margin: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s;
-            border: 2px solid var(--roxo-vibrante);
-        }
-
-        .gif:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px var(--amarelo-brilhante);
-        }
-
-        .spider-web {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M50 0 L50 100 M0 50 L100 50 M15 15 L85 85 M85 15 L15 85" stroke="white" stroke-width="0.5" opacity="0.3"/></svg>');
-            opacity: 0.1;
-            z-index: 0;
-        }
-
-        .nerd-ref {
-            font-style: italic;
-            color: var(--roxo-vibrante);
-            font-size: 0.9em;
-            display: block;
-            margin-top: 5px;
-        }
-
-        /* Adicionado para melhorar a responsividade */
-        @media (max-width: 600px) {
-            body {
-                max-width: 100%;
-            }
-            
-            .section {
-                margin: 10px;
-                padding: 15px;
-            }
-            
-            .profile img {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .gif {
-                width: 80px;
-                height: 80px;
-            }
-        }
-    </style>
+      section {
+        padding: 0.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="profile">
-        <img src="https://avatars.githubusercontent.com/u/209627769?s=400&u=170f729ef94324d0eb3291f2c8b83c7d4c9ebec7&v=4" alt="Foto de perfil de Caio">
-        <div class="spider-web"></div>
-        <h1 style="color: var(--branco); text-shadow: 0 2px 4px rgba(0,0,0,0.5);">👋 Olá! Eu sou o Caio</h1>
-        <p>🎨 Designer | 🧠 Ilustrador | 💻 Desenvolvedor</p>
-    </div>
+  <header>
+    <button class="toggle-btn" onclick="document.body.classList.toggle('dark-mode')">🌙</button>
+    <img src="https://avatars.githubusercontent.com/u/209627769?s=400&u=170f729ef94324d0eb3291f2c8b83c7d4c9ebec7&v=4" alt="Foto do Caio">
+    <h1>👋 Olá! Eu sou o Caio</h1>
+    <p>🎨 Designer | 💻 Desenvolvedor | ✍️ Ilustrador</p>
+  </header>
 
-    <div class="section">
-        <p>Sou um criador multidisciplinar que une lógica e criatividade para transformar ideias em experiências visuais e interativas. Transito com facilidade entre o código, as cores e a comunicação visual, sempre buscando propósito e impacto em cada projeto.</p>
-        <span class="nerd-ref">"Criatividade é inteligência se divertindo." - Albert Einstein</span>
-        
-        <div class="gif-container">
-            <img class="gif" src="https://media.giphy.com/media/Ll22OhMLAlVDb8UQWe/giphy.gif" alt="Design">
-            <img class="gif" src="https://media.giphy.com/media/coxQHKASG60HrHtvkt/giphy.gif" alt="Código">
-            <img class="gif" src="https://media.giphy.com/media/WTjXuYA2y4o3UZly3W/giphy.gif" alt="Ilustração">
-        </div>
-    </div>
+  <main>
+    <section>
+        <h2>📌 Introdução</h2>
+      <p>Sou um criador multidisciplinar que une lógica e criatividade para transformar ideias em experiências visuais e interativas.</p>
+      <span style="font-style: italic; color: var(--roxo);">"Criatividade é inteligência se divertindo." – Albert Einstein</span>
+      <div class="gif-container">
+        <img src="https://media.giphy.com/media/Ll22OhMLAlVDb8UQWe/giphy.gif" alt="Design">
+        <img src="https://media.giphy.com/media/coxQHKASG60HrHtvkt/giphy.gif" alt="Código">
+        <img src="https://media.giphy.com/media/WTjXuYA2y4o3UZly3W/giphy.gif" alt="Ilustração">
+      </div>
+    </section>
 
-    <div class="section">
-        <h2>💻 Desenvolvedor</h2>
-        <ul>
-            <li>Experiência com C e Python</li>
-            <li>Apaixonado por escrever código limpo, escalável e bem documentado</li>
-            <li>Sempre animado para resolver problemas e aprender novas tecnologias</li>
-        </ul>
-    </div>
+    <section>
+      <h2>💻 Desenvolvedor</h2>
+      <ul>
+        <li>Experiência com C e Python</li>
+        <li>Código limpo, escalável e bem documentado</li>
+        <li>Amante de tecnologia e aprendizado contínuo</li>
+      </ul>
+    </section>
 
-    <div class="section">
-        <h2>🎨 Designer & Ilustrador</h2>
-        <ul>
-            <li>Criação de identidades visuais, interfaces, arte conceitual e personagens</li>
-            <li>Ferramentas favoritas: Paint Tool SAI, Photoshop, Illustrator, Procreate</li>
-            <li>Foco em estética, usabilidade e narrativa visual</li>
-        </ul>
-    </div>
+    <section>
+      <h2>🎨 Designer & Ilustrador</h2>
+      <ul>
+        <li>Criação de interfaces, personagens e arte conceitual</li>
+        <li>Ferramentas: SAI, Photoshop, Illustrator, Procreate</li>
+        <li>Foco em estética, usabilidade e narrativa visual</li>
+      </ul>
+    </section>
 
-    <div class="section">
-        <h2>🌟 Minhas preferências</h2>
-        <ul>
-            <li>Projetos que unem arte + tecnologia</li>
-            <li>Trabalhar com equipes criativas e curiosas</li>
-            <li>Café forte ☕, bons livros de design 📚 e playlists que empolgam 🎧</li>
-            <li>Sempre aprendendo e compartilhando conhecimento</li>
-        </ul>
-    </div>
+    <section>
+      <h2>🌟 Minhas preferências</h2>
+      <ul>
+        <li>Projetos que unem arte + tecnologia</li>
+        <li>Trabalhar com pessoas curiosas e criativas</li>
+        <li>Café forte ☕, bons livros 📚 e músicas 🎧</li>
+        <li>Aprendizado e compartilhamento de conhecimento</li>
+      </ul>
+    </section>
 
-    <div class="section">
-        <h2>📫 Contato</h2>
-        <p>Email: <a href="mailto:caiosiqueiraamaral@gmail.com">caiosiqueiraamaral@gmail.com</a></p>
-        <p>Email alternativo: <a href="mailto:caiopcmx@gmail.com">caiopcmx@gmail.com</a></p>
-    </div>
+    <section>
+      <h2>📫 Contato</h2>
+      <p>Email: <a href="mailto:caiosiqueiraamaral@gmail.com">caiosiqueiraamaral@gmail.com</a></p>
+      <p>Email alternativo: <a href="mailto:caiopcmx@gmail.com">caiopcmx@gmail.com</a></p>
+    </section>
+  </main>
 
-    <footer>
-        <p>"A simplicidade é o último grau de sofisticação." ✧<span style="color: var(--vermelho-energico);">---</span>•<span style="color: var(--amarelo-brilhante);">---</span>✧<span style="color: var(--roxo-vibrante);">---</span>•<span style="color: var(--azul-profundo);">---</span>✧</p>
-    </footer>
+  <footer>
+    "A simplicidade é o último grau de sofisticação."
+  </footer>
 </body>
 </html>
