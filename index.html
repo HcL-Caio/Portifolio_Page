@@ -1,194 +1,312 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caio | HcL-Caio</title>
+    <title>Caio - Designer & Desenvolvedor</title>
+    <link rel="icon" href="https://img.icons8.com/color/48/000000/spider-man-new.png" type="image/x-icon">
     <style>
         :root {
-            --primary-color: #2d3436;
-            --secondary-color: #0984e3;
-            --accent-color: #00cec9;
-            --text-color: #dfe6e9;
-            --bg-color: #1e272e;
+            --vermelho-energico: #E50047;
+            --amarelo-brilhante: #FFFC79;
+            --roxo-vibrante: #9249E0;
+            --azul-profundo: #088AD1;
+            --preto: #1a1a1a;
+            --branco: #ffffff;
+            --cinza-claro: #f5f5f5;
+            --sombra-destaque: rgba(146, 73, 224, 0.3);
         }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-        }
-        
-        .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 0;
+            color: var(--preto);
+            background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat fixed;
+            position: relative;
         }
-        
-        header {
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: -1;
+        }
+
+        .profile {
             text-align: center;
-            margin-bottom: 2rem;
+            padding: 40px 20px;
+            background: linear-gradient(45deg, var(--roxo-vibrante), var(--azul-profundo));
+            color: var(--branco);
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid var(--vermelho-energico);
+            box-shadow: 0 0 20px var(--sombra-destaque);
         }
-        
-        h1 {
-            color: var(--accent-color);
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+
+        .profile::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: var(--amarelo-brilhante);
+            transform: rotate(-2deg);
+            z-index: 1;
         }
-        
-        .subtitle {
-            color: var(--secondary-color);
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .profile-img {
+
+        .profile img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--accent-color);
-            margin: 1rem auto;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-        
-        .social-links a {
-            color: var(--text-color);
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: var(--accent-color);
-        }
-        
-        section {
-            margin-bottom: 2rem;
-        }
-        
-        h2 {
-            color: var(--secondary-color);
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem;
-        }
-        
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .project-card {
-            background: var(--primary-color);
-            padding: 1rem;
-            border-radius: 8px;
+            border: 4px solid var(--branco);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 20px var(--amarelo-brilhante);
+            z-index: 2;
+            position: relative;
+            background: var(--branco);
             transition: transform 0.3s;
         }
-        
-        .project-card:hover {
+
+        .profile img:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        h1, h2 {
+            color: var(--roxo-vibrante);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            border-bottom: 2px dashed var(--vermelho-energico);
+            padding-bottom: 5px;
+            display: inline-block;
+            font-family: 'Arial Black', Gadget, sans-serif;
+        }
+
+        .section {
+            background: var(--branco);
+            padding: 25px;
+            margin: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--amarelo-brilhante);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .section:hover {
             transform: translateY(-5px);
+            box-shadow: 0 6px 12px var(--sombra-destaque);
         }
-        
-        .project-card h3 {
-            margin-top: 0;
-            color: var(--accent-color);
+
+        .section::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="0" y="80" font-family="Arial" font-size="80" fill="rgba(0,0,0,0.05)">!</text></svg>');
+            opacity: 0.3;
+            z-index: 0;
         }
-        
-        .project-card a {
-            color: var(--secondary-color);
+
+        .emoji {
+            font-size: 1.2em;
+        }
+
+        a {
+            color: var(--azul-profundo);
             text-decoration: none;
             font-weight: bold;
+            transition: all 0.3s;
         }
-        
+
+        a:hover {
+            text-decoration: underline;
+            color: var(--roxo-vibrante);
+            text-shadow: 0 0 5px rgba(146, 73, 224, 0.3);
+        }
+
+        ul {
+            padding-left: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--vermelho-energico);
+            font-size: 1.5em;
+            position: absolute;
+            left: -5px;
+            top: -5px;
+        }
+
         footer {
             text-align: center;
-            margin-top: 3rem;
-            padding: 1rem;
-            color: var(--text-color);
-            font-size: 0.9rem;
+            padding: 20px;
+            color: var(--branco);
+            background: var(--preto);
+            border-radius: 20px 20px 0 0;
+            margin-top: 30px;
+            position: relative;
+            background-color: rgba(26, 26, 26, 0.9);
         }
-        
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--vermelho-energico), var(--amarelo-brilhante), var(--roxo-vibrante), var(--azul-profundo));
+        }
+
+        .gif-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .gif {
+            width: 120px;
+            height: 120px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            border: 2px solid var(--roxo-vibrante);
+        }
+
+        .gif:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px var(--amarelo-brilhante);
+        }
+
+        .spider-web {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M50 0 L50 100 M0 50 L100 50 M15 15 L85 85 M85 15 L15 85" stroke="white" stroke-width="0.5" opacity="0.3"/></svg>');
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .nerd-ref {
+            font-style: italic;
+            color: var(--roxo-vibrante);
+            font-size: 0.9em;
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* Adicionado para melhorar a responsividade */
         @media (max-width: 600px) {
-            .container {
-                padding: 1rem;
+            body {
+                max-width: 100%;
             }
             
-            h1 {
-                font-size: 2rem;
+            .section {
+                margin: 10px;
+                padding: 15px;
             }
             
-            .projects {
-                grid-template-columns: 1fr;
+            .profile img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .gif {
+                width: 80px;
+                height: 80px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="https://avatars.githubusercontent.com/u/SEU_USER_ID?v=4" alt="Foto de Caio" class="profile-img">
-            <h1>Caio</h1>
-            <p class="subtitle">Desenvolvedor | Estudante de Tecnologia</p>
-            <div class="social-links">
-                <a href="https://github.com/HcL-Caio" target="_blank" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <!-- Adicione mais links sociais conforme necessário -->
-            </div>
-        </header>
-        
-        <section>
-            <h2>Sobre Mim</h2>
-            <p>Olá! Eu sou Caio, um entusiasta da tecnologia e desenvolvedor em formação. Estou constantemente aprendendo e explorando novas tecnologias para criar soluções inovadoras.</p>
-            <p>No meu tempo livre, gosto de contribuir para projetos open source e desenvolver meus próprios projetos pessoais.</p>
-        </section>
-        
-        <section>
-            <h2>Projetos Destacados</h2>
-            <div class="projects">
-                <div class="project-card">
-                    <h3>Projeto 1</h3>
-                    <p>Descrição breve do projeto e suas tecnologias.</p>
-                    <a href="#" target="_blank">Ver no GitHub</a>
-                </div>
-                <div class="project-card">
-                    <h3>Projeto 2</h3>
-                    <p>Descrição breve do projeto e suas tecnologias.</p>
-                    <a href="#" target="_blank">Ver no GitHub</a>
-                </div>
-                <div class="project-card">
-                    <h3>Projeto 3</h3>
-                    <p>Descrição breve do projeto e suas tecnologias.</p>
-                    <a href="#" target="_blank">Ver no GitHub</a>
-                </div>
-            </div>
-        </section>
-        
-        <section>
-            <h2>Habilidades</h2>
-            <ul>
-                <li>Linguagens: JavaScript, Python, HTML/CSS</li>
-                <li>Frameworks: React, Node.js</li>
-                <li>Ferramentas: Git, GitHub, VS Code</li>
-                <li>Outros: Responsive Design, UI/UX Básico</li>
-            </ul>
-        </section>
-        
-        <footer>
-            <p>&copy; 2023 Caio. Todos os direitos reservados.</p>
-        </footer>
+    <div class="profile">
+        <img src="https://avatars.githubusercontent.com/u/209627769?s=400&u=170f729ef94324d0eb3291f2c8b83c7d4c9ebec7&v=4" alt="Foto de perfil de Caio">
+        <div class="spider-web"></div>
+        <h1 style="color: var(--branco); text-shadow: 0 2px 4px rgba(0,0,0,0.5);">👋 Olá! Eu sou o Caio</h1>
+        <p>🎨 Designer | 🧠 Ilustrador | 💻 Desenvolvedor</p>
     </div>
-    
-    <!-- Font Awesome para ícones -->
-    <script src="https://kit.fontawesome.com/SEU_CODIGO.js" crossorigin="anonymous"></script>
+
+    <div class="section">
+        <p>Sou um criador multidisciplinar que une lógica e criatividade para transformar ideias em experiências visuais e interativas. Transito com facilidade entre o código, as cores e a comunicação visual, sempre buscando propósito e impacto em cada projeto.</p>
+        <span class="nerd-ref">"Criatividade é inteligência se divertindo." - Albert Einstein</span>
+        
+        <div class="gif-container">
+            <img class="gif" src="https://media.giphy.com/media/Ll22OhMLAlVDb8UQWe/giphy.gif" alt="Design">
+            <img class="gif" src="https://media.giphy.com/media/coxQHKASG60HrHtvkt/giphy.gif" alt="Código">
+            <img class="gif" src="https://media.giphy.com/media/WTjXuYA2y4o3UZly3W/giphy.gif" alt="Ilustração">
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>💻 Desenvolvedor</h2>
+        <ul>
+            <li>Experiência com C e Python</li>
+            <li>Apaixonado por escrever código limpo, escalável e bem documentado</li>
+            <li>Sempre animado para resolver problemas e aprender novas tecnologias</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>🎨 Designer & Ilustrador</h2>
+        <ul>
+            <li>Criação de identidades visuais, interfaces, arte conceitual e personagens</li>
+            <li>Ferramentas favoritas: Paint Tool SAI, Photoshop, Illustrator, Procreate</li>
+            <li>Foco em estética, usabilidade e narrativa visual</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>🌟 Minhas preferências</h2>
+        <ul>
+            <li>Projetos que unem arte + tecnologia</li>
+            <li>Trabalhar com equipes criativas e curiosas</li>
+            <li>Café forte ☕, bons livros de design 📚 e playlists que empolgam 🎧</li>
+            <li>Sempre aprendendo e compartilhando conhecimento</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📫 Contato</h2>
+        <p>Email: <a href="mailto:caiosiqueiraamaral@gmail.com">caiosiqueiraamaral@gmail.com</a></p>
+        <p>Email alternativo: <a href="mailto:caiopcmx@gmail.com">caiopcmx@gmail.com</a></p>
+    </div>
+
+    <footer>
+        <p>"A simplicidade é o último grau de sofisticação." ✧<span style="color: var(--vermelho-energico);">---</span>•<span style="color: var(--amarelo-brilhante);">---</span>✧<span style="color: var(--roxo-vibrante);">---</span>•<span style="color: var(--azul-profundo);">---</span>✧</p>
+    </footer>
 </body>
 </html>
