@@ -1,5 +1,5 @@
 ### Olá! 👋
-Este é o meu segundo site, criado como parte do meu aprendizado em desenvolvimento web. Ainda estou começando a aprender HTML e CSS, e aos poucos estou explorando também o JavaScript.
+Este é o meu primeiro site, criado como parte do meu aprendizado em desenvolvimento web. Ainda estou começando a aprender HTML e CSS, e aos poucos estou explorando também o JavaScript.
 
 Uma das funcionalidades que implementei neste projeto foi o modo escuro 🌙, feito com um pouco de JavaScript — nada muito avançado, mas suficiente para começar a brincar com interatividade.
 
